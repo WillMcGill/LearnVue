@@ -2,20 +2,18 @@
 <html>
 <head>
     <title></title>
+    <style>
+    
+        .color-red {color: red}
+        .color-blue {color: blue}
+        .is-loading {background: red}
+    </style>
 </head>
 <body>
 
     <div id ='root'>
 
-       <ul>
-
-        <li v-for="name in names">{{name}}</li>
-
-        <input id ="input" type="text" v-model="newName">
-
-        <button id="button" v-on:click = "addName">Add Name</button>
-        
-       </ul> 
+       <button :class="{'is-loading' : isLoading}" @click="toggleClass">Click me</button>
 
     </div>
 
@@ -31,36 +29,32 @@
 
             data: {
 
-               newName: '', 
+              title: "this is a binding title",
 
-               names: ['Joe', 'Mary', 'Jane', 'Jack']
+              className: "color-red",
+              
+              isLoading : false
 
             },
 
             methods: {
+
+                toggleClass(){
+                    this.isLoading = true
+                },
 
                 addName(){
                     
                     this.names.push(this.newName)
 
                     this.newName = '';
+
+                    this.toggleClass = true
                 }
 
             },
 
-            mounted(){
-            //     document.querySelector('button').addEventListener('click', ()=>{
-
-            //     let name = document.querySelector('input');
-
-            //     app.names.push(name.value)
-
-            //     name.value = '';
-
-
-            // });
-
-            }
+            
 
         });
 
