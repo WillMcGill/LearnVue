@@ -2,114 +2,28 @@
 <html>
 <head>
     <title></title>
-    <style>
     
-        .color-red {color: red}
-        .color-blue {color: blue}
-        .is-loading {background: red}
-    </style>
 </head>
 <body>
 
     <div id ='root'>
 
-        <h1>To do List</h1>
-
-            <ul>
-
-                <li v-for='task in tasks' v-text="task.description"></li>
-
-            </ul>
-
-
-        <h1>Incomplete Tasks</h1>
-
-            <ul>
-
-                <li v-for='task in incompleteTasks' v-text="task.description"></li>
-
-            </ul>
-
-
-
+        <task>store</task>
+        <task>dog</task>
+        <task>dishes</task>
+       
 
     </div>
 
 
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
 
+    <script src="main.js"></script>
+
     <script>
     
 
-        let app = new Vue({
-
-            el: '#root',
-
-            data: {
-
-              title: "this is a binding title",
-
-              className: "color-red",
-              
-              isLoading : false,
-
-              message: "Hello World",
-
-              tasks:[
-
-                    {description: 'go to store', completed: true},
-
-                    {description: 'pick up mail', completed: false},
-
-                    {description: 'do the dishes', completed: false},
-
-                    {description: 'fold laundry', completed: false},
-
-                    {description: 'sweep', completed: false},
-
-                    {description: 'feed the dog', completed: false}
-
-                ]
-
-            },
-
-            methods: {
-
-                toggleClass(){
-                    this.isLoading = true
-                },
-
-                addName(){
-                    
-                    this.names.push(this.newName)
-
-                    this.newName = '';
-
-                    this.toggleClass = true
-                }
-
-            },
-
-            computed: {
-                
-                reversedMessage(){
-
-                    return this.message.split('').reverse().join('')
-
-                },
-
-                incompleteTasks(){
-
-                    return this.tasks.filter(task => ! task.completed)
-
-                }
-            }
-
-            
-
-        });
-
-        
+   
 
     </script>
 </body>
